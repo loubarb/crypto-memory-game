@@ -1,7 +1,7 @@
 body {
   background-color: #000;
   font-size: 16px;
-  overflow-y: hidden;
+  /* overflow-y: hidden; */
 }
 
 h1 {
@@ -9,7 +9,7 @@ h1 {
   color: #fff;
   font-family: 'Space Mono', monospace;
   font-weight: bold;
-  margin-top: 10px;
+  margin: 10px 0;
   text-align: center;
 }
 
@@ -19,9 +19,11 @@ h1 {
 
 .play-space {
   display: grid;
-  grid-template-columns: repeat(6, 300px);
+  grid-template-columns: repeat(auto-fit, 300px);
   justify-content: center;
   justify-self: center;
+  gap: 5px;
+  perspective: 1000px;
 }
 
 .play-card {
@@ -31,10 +33,27 @@ h1 {
   position: relative;
   justify-self: center;
   align-self: center;
+  transform: scale(1);
+  transform-style: preserve-3d;
+  transition: transform .5s;
 }
 
-.play-card img {
-  width: 150px;
-  height: 200px;
+.front, .back {
+  width: 190px;
+  height: 240px;
   position: absolute;
+  backface-visibility: hidden;
+}
+
+.front {
+  transform: rotateY(180deg);
+}
+
+.play-card:active {
+  transform: scale(0.87);
+  transition: transform .5s;
+}
+
+.play-card.show {
+  transform: rotateY(180deg);
 }
