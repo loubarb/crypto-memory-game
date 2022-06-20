@@ -1,7 +1,6 @@
 body {
   background-color: #000;
   font-size: 16px;
-  /* overflow-y: hidden; */
 }
 
 h1 {
@@ -11,6 +10,20 @@ h1 {
   font-weight: bold;
   margin: 15px 0;
   text-align: center;
+}
+
+h3 {
+  font-family: 'Open Sans', sans-serif;
+}
+
+p {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.start {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  font-size: 1.25em;
 }
 
 .container {
@@ -56,4 +69,34 @@ h1 {
 
 .play-card.flip {
   transform: rotateY(180deg);
+}
+
+.outer-modal {
+  background-color: rgba(54, 51, 51, 0.568);
+  display: grid;
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+  transition: 0.2s ease-in;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.outer-modal.show {
+  opacity: 1;
+  pointer-events: all;
+  transition: 0.2s ease-in;
+}
+
+.inner-modal {
+  background-color: hsla(39, 97%, 48%, 0.8);
+  width: 300px;
+  height: auto;
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
 }

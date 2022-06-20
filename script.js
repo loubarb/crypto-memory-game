@@ -2,6 +2,9 @@ const playCard = document.querySelectorAll('.play-card');
 let flippedCard = false;
 let firstCard, secondCard;
 let boardLock = false;
+const innerModal = document.querySelector('.inner-modal');
+const outerModal = document.querySelector('.outer-modal');
+const startButton = document.querySelector('.start')
 
 function handleCardFlip() {
   if (boardLock) return;
@@ -62,4 +65,8 @@ shuffle();
 
 playCard.forEach((card) => {
   card.addEventListener('click', handleCardFlip)
+})
+
+startButton.addEventListener('click', (e) => {
+  outerModal.classList.remove('show')
 })
